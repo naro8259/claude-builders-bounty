@@ -5,8 +5,8 @@ Generate a structured `CHANGELOG.md` from Git history since the latest tag.
 ## Setup — 3 steps
 
 1. Copy the `bounty-1` directory into your repository.
-2. Run `chmod +x bounty-1/generate-changelog`.
-3. Run `bounty-1/generate-changelog`.
+2. Run `bash bounty-1/changelog.sh`.
+3. Commit the generated `CHANGELOG.md`.
 
 That writes `CHANGELOG.md` in the target repository and preserves older
 entries. Use `--stdout` to preview without writing.
@@ -14,10 +14,10 @@ entries. Use `--stdout` to preview without writing.
 ## Examples
 
 ```bash
-bounty-1/generate-changelog
-bounty-1/generate-changelog --since v1.2.0
-bounty-1/generate-changelog --since v1.2.0 --until v1.3.0 --heading v1.3.0
-bounty-1/generate-changelog --stdout
+bash bounty-1/changelog.sh
+bash bounty-1/changelog.sh --since v1.2.0
+bash bounty-1/changelog.sh --since v1.2.0 --until v1.3.0 --heading v1.3.0
+bash bounty-1/changelog.sh --stdout
 ```
 
 The default range is `LATEST_TAG..HEAD`; if the repository has no tags, all
@@ -44,5 +44,5 @@ python3 -m unittest discover -s bounty-1/tests -v
 python3 -m py_compile bounty-1/generate_changelog.py
 ```
 
-A generated example from a real GitHub repository is included at
-`samples/requests-changelog.md`.
+A generated example from the real `pallets/click` GitHub repository is included at
+`samples/click-changelog.md` (generated from the latest tag, `8.5.0`, through `HEAD`).
